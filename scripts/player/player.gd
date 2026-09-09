@@ -17,6 +17,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Handle movement with WASD relative to camera direction
+	# get_vector(negative_x, positive_x, negative_y, positive_y)
 	var input_vector = Input.get_vector("ui_a", "ui_d", "ui_w", "ui_s")
 	
 	# Get the forward direction from the Head (camera rotation)
@@ -27,12 +28,12 @@ func _physics_process(delta):
 	var direction = (forward * input_vector.y + right * input_vector.x).normalized()
 	direction.y = 0  # Keep movement horizontal
 	
-	if direction:
+	if direction.length() > 0:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, speed * 2)
+		velocity.z = move_toward(velocity.z, 0, speed * 2)
 	
 	# Gravity
 	velocity.y -= gravity * delta
