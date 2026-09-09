@@ -14,21 +14,33 @@ config/icon="res://icon.svg"
 
 [input]
 
-ui_w={
+move_forward={
 "deadzone": 0.5,
 "events": [Key(keycode=87)]
 }
-ui_a={
-"deadzone": 0.5,
-"events": [Key(keycode=65)]
-}
-ui_s={
+move_backward={
 "deadzone": 0.5,
 "events": [Key(keycode=83)]
 }
-ui_d={
+move_left={
+"deadzone": 0.5,
+"events": [Key(keycode=65)]
+}
+move_right={
 "deadzone": 0.5,
 "events": [Key(keycode=68)]
+}
+jump={
+"deadzone": 0.5,
+"events": [Key(keycode=32)]
+}
+attack={
+"deadzone": 0.5,
+"events": [Key(keycode=9)]
+}
+toggle_mouse={
+"deadzone": 0.5,
+"events": [Key(keycode=4194305)]
 }
 
 [rendering]
