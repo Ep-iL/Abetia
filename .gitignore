@@ -1,0 +1,28 @@
+# Godot-specific ignores
+.godot/
+*.translation
+*.pot
+
+# Mono/.NET-specific ignores
+mono_crash.*.json
+
+# Builds
+builds/
+bin/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific
+.DS_Store
+Thumbs.db
+.directory
+
+# Editor
+.editorconfig
