@@ -12,6 +12,25 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[input]
+
+ui_w={
+"deadzone": 0.5,
+"events": [Key(keycode=87)]
+}
+ui_a={
+"deadzone": 0.5,
+"events": [Key(keycode=65)]
+}
+ui_s={
+"deadzone": 0.5,
+"events": [Key(keycode=83)]
+}
+ui_d={
+"deadzone": 0.5,
+"events": [Key(keycode=68)]
+}
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
