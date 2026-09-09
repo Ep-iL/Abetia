@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dafr8cxfny31h"]
 
-[ext_resource type="Script" path="res://scripts/main.gd"]
-[ext_resource type="PackedScene" uid="uid://b8kd3d82v8tqe" path="res://scenes/player/player.tscn"]
-[ext_resource type="PackedScene" uid="uid://c6xl3b0x4vehp" path="res://scenes/enemy/enemy.tscn"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_qw4rt"]
+[ext_resource type="PackedScene" uid="uid://b8kd3d82v8tqe" path="res://scenes/player/player.tscn" id="2_lf8m2"]
+[ext_resource type="PackedScene" uid="uid://c6xl3b0x4vehp" path="res://scenes/enemy/enemy.tscn" id="3_rnx8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3r4t"]
 albedo_color = Color(0.4, 0.4, 0.4, 1)
@@ -14,7 +14,7 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("Script_h3r4t")
+script = ExtResource("1_qw4rt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
@@ -32,8 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundCollider"]
 shape = SubResource("BoxShape3D_gkxdq")
 
-[node name="Player" parent="." instance=ExtResource("PackedScene_h3r4t")]
+[node name="Player" parent="." instance=ExtResource("2_lf8m2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("PackedScene_c6xl3b0x4vehp")]
+[node name="Enemy" parent="." instance=ExtResource("3_rnx8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -5)
