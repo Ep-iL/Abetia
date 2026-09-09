@@ -16,9 +16,20 @@ func _ready():
 	$Head/Camera3D.current = true
 
 func _physics_process(delta):
-	# Handle movement with WASD relative to camera direction
-	# get_vector(negative_x, positive_x, negative_y, positive_y)
-	var input_vector = Input.get_vector("ui_a", "ui_d", "ui_w", "ui_s")
+	# Handle movement with WASD using direct key input
+	var input_x = 0.0
+	var input_y = 0.0
+	
+	if Input.is_key_pressed(KEY_W):
+		input_y -= 1.0
+	if Input.is_key_pressed(KEY_S):
+		input_y += 1.0
+	if Input.is_key_pressed(KEY_A):
+		input_x -= 1.0
+	if Input.is_key_pressed(KEY_D):
+		input_x += 1.0
+	
+	var input_vector = Vector2(input_x, input_y).normalized()
 	
 	# Get the forward direction from the Head (camera rotation)
 	var forward = -$Head.global_transform.basis.z
@@ -44,15 +55,15 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	# Handle attack
-	if Input.is_action_just_pressed("ui_focus_next") and attack_cooldown <= 0:
+	# Handle attack (Tab key)
+	if Input.is_key_pressed(KEY_TAB) and attack_cooldown <= 0:
 		attack()
 		attack_cooldown = 0.5
 	
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
 	
-	# Mouse look
+	# Mouse look toggle (ESC key)
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 
