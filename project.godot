@@ -1,0 +1,21 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are loss-less and defaults will be used.
+
+config_version=5
+
+[application]
+
+config/name="Abetia"
+config/description="A 3D Souls-like game MVP"
+run/main_scene="res://scenes/main/main.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.1, 0.1, 0.15, 1)
+environment/defaults/default_ambient_light_enabled=true
+environment/defaults/default_ambient_light_energy=1.0
