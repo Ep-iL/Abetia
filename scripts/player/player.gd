@@ -16,9 +16,16 @@ func _ready():
 	$Head/Camera3D.current = true
 
 func _physics_process(delta):
-	# Handle movement
-	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_vector.x, 0, input_vector.y)).normalized()
+	# Handle movement with WASD relative to camera direction
+	var input_vector = Input.get_vector("ui_a", "ui_d", "ui_w", "ui_s")
+	
+	# Get the forward direction from the Head (camera rotation)
+	var forward = -$Head.global_transform.basis.z
+	var right = $Head.global_transform.basis.x
+	
+	# Calculate direction relative to camera
+	var direction = (forward * input_vector.y + right * input_vector.x).normalized()
+	direction.y = 0  # Keep movement horizontal
 	
 	if direction:
 		velocity.x = direction.x * speed
